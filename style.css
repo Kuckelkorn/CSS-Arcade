@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  background-color: blanchedalmond;
+}
+
+main{
+  height: 80vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+footer{
+  height: 20vh;
+  background-color: darkred;
+}
+
+main section {
+  background-color: black;
+  width: 30%;
+  height: 50%;
+  margin: auto;
+}
