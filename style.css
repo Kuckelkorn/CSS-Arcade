@@ -27,8 +27,7 @@ footer{
   place-items: center;
   bottom: 0;
   left: 50%;
-  transform: translateZ(-5px);
-  transform: translateX(-50%);
+  transform: translateX(-50%)  translateZ(-1px);
   height: 20vh;
   width: 65vw;
   background-color: grey;
@@ -93,8 +92,9 @@ main form input[type=checkbox]:checked::before{
 }
 
 form input {
-  margin-bottom: 1em;
+  margin-bottom: .5em;
 }
+
 /* Links 1 */
 main:has(form:first-child input:first-child:checked) section {
   background-color: mediumaquamarine;
@@ -160,21 +160,14 @@ main:has(form:first-child:has(input:first-child:checked) ~ form:last-child:has(i
 /* Rechts 1, 2 en 3 */
 main:has(form:last-child:has(input:nth-child(1):checked + input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
   opacity: 1;
-  background-color: turquoise; 
+  background-color: turquoise;
+  animation: wiggle 2s forwards infinite; 
 }
 /* Links 1, 2 en 3 */
 main:has(form:first-child:has(input:nth-child(1):checked + input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
   animation: bounce 1s infinite;
 }
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  100%{
-    transform: translateY(-100px);
-  }
-}
 
 /* Slider styling */
 /* Reset copied from css-tricks */
@@ -208,12 +201,12 @@ input[type=range]::-ms-track {
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid darkred;
-  height: 3em;
-  width: 3em;
+  height: 4em;
+  width: 4em;
   border-radius: 50%;
   background: crimson;
   cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  margin-top: -18px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px darkred, 0px 0px 1px darkred; /* Add cool effects to your sliders! */
 }
 
@@ -224,7 +217,26 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: inset 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: darkgrey;
+  background: #222;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-100px);
+  }
+}
+
+
+@keyframes wiggle {
+  0%{transform: rotate(10deg);}
+  25%{transform: rotate(-10deg);}
+  50%{transform: rotate(20deg);}
+  75%{transform: rotate(-5deg);}
+  100%{transform: rotate(0deg);}
 }
