@@ -1,24 +1,129 @@
 *{
   margin: 0;
   padding: 0;
-  background-color: blanchedalmond;
+}
+
+body {
+  /* background-color: blanchedalmond; */
+  background: url('./fiber.jpg') no-repeat;
+  background-size: cover;
 }
 
 main{
-  height: 80vh;
+  position: relative;
+  height: 100vh;
   display: grid;
-  justify-content: center;
-  align-content: center;
+  grid-template-columns: 2fr 8fr 2fr;
+  place-items: center;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 footer{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 20vh;
+  width: 65vw;
   background-color: darkred;
-}
+  clip-path: polygon(16% 20%, 84% 20%, 100% 100%, 0% 100%);
+  /* clip-path: path("M60.5 1C1 1 1 129.5 1 129.5H687C687 129.5 687 1 624 1H60.5Z"); */
+} 
 
 main section {
   background-color: black;
-  width: 30%;
-  height: 50%;
+  width: 60%;
+  height: 40%;
   margin: auto;
+  transform: translateY(-4em);
+  border-radius: 5px;
+}
+
+main form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  transform: translateY(-4em);
+}
+
+main form input {
+  width: 5em;
+  height: 5em;
+}
+
+form input {
+  margin-bottom: 1em;
+}
+
+main:has(form:first-child input:first-child:checked) section {
+  background-color: aqua;
+}
+main:has(form:first-child input:nth-child(2):checked) section {
+  background-color: red;
+}
+main:has(form:first-child input:nth-child(3):checked) section {
+  background-color: green;
+}
+main:has(form:first-child input:nth-child(4):checked) section {
+  background-color: rebeccapurple;
+}
+main:has(form:first-child input:last-child:checked) section {
+  background-color: teal;
+}
+
+main:has(form:last-child input:first-child:checked) section {
+  background-color: crimson;
+}
+main:has(form:last-child input:nth-child(2):checked) section {
+  background-color: brown;
+}
+main:has(form:last-child input:nth-child(3):checked) section {
+  background-color: lawngreen;
+}
+
+main:has(form:last-child input:nth-child(4):checked) section {
+  background-color: orange;
+}
+
+main:has(form:last-child input:last-child:checked) section {
+  background-color: hotpink;
+}
+
+main:has(form:last-child:has(input:first-child:checked + input:nth-child(2):checked)) section {
+  opacity: 0%;
+}
+
+main:has(form:last-child:has(input:nth-child(1):checked ~ input:nth-child(3):checked)) section {
+  background-color: turquoise;
+}
+
+main:has(form:last-child:has(input:nth-child(3):checked + input:nth-child(4):checked)) section {
+  mix-blend-mode: exclusion;
+}
+
+main:has(form:last-child:has(input:nth-child(4):checked + input:last-child:checked)) section {
+  mix-blend-mode: difference;
+}
+
+main:has(form:last-child:has(input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
+  background-color: yellow;
+}
+
+
+main:has(form:first-child:has(input:first-child:checked) ~ form:last-child:has(input:first-child:checked)) section {
+  background-color: darksalmon;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-100px);
+  }
 }
