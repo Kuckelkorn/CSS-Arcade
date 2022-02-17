@@ -7,6 +7,7 @@ body {
   /* background-color: blanchedalmond; */
   background: url('./fiber.jpg') no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 main{
@@ -16,18 +17,21 @@ main{
   grid-template-columns: 2fr 8fr 2fr;
   place-items: center;
   background-color: rgba(255, 255, 255, .15);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 footer{
   position: absolute;
+  display: grid;
+  place-items: center;
   bottom: 0;
   left: 50%;
+  transform: translateZ(-5px);
   transform: translateX(-50%);
   height: 20vh;
   width: 65vw;
-  background-color: darkred;
+  background-color: grey;
   clip-path: polygon(16% 20%, 84% 20%, 100% 100%, 0% 100%);
   /* clip-path: path("M60.5 1C1 1 1 129.5 1 129.5H687C687 129.5 687 1 624 1H60.5Z"); */
 } 
@@ -51,72 +55,116 @@ main form {
   transform: translateY(-4em);
 }
 
+footer form {
+  margin-top: 1em;
+  transform: translateY(1em);
+  width: 40vw;
+}
+
+footer form input {
+  width: 100%;
+}
+
+
 main form input {
+  position: relative;
   width: 5em;
   height: 5em;
+  left: -1000em;
+}
+
+main form input[type=checkbox]::before{
+  position: absolute;
+  top: 0;
+  left: 1000em;
+  content: '';
+  width: 5em;
+  height: 5em;
+  background-color: green;
+  opacity: 50%;
+}
+
+main form input[type=checkbox]:checked::before{
+  box-shadow: inset 0 0 5px 2px green;
+  background-color: lightgreen;
+  mix-blend-mode: darken;
+  opacity: 90%;
+  /* mix-blend-mode: difference; */
 }
 
 form input {
   margin-bottom: 1em;
 }
-
+/* Links 1 */
 main:has(form:first-child input:first-child:checked) section {
-  background-color: aqua;
+  background-color: mediumaquamarine;
 }
+/* Links 2 */
 main:has(form:first-child input:nth-child(2):checked) section {
   background-color: red;
 }
+/* Links 3 */
 main:has(form:first-child input:nth-child(3):checked) section {
-  background-color: green;
+  background-color: fuchsia;
 }
+/* Links 4 */
 main:has(form:first-child input:nth-child(4):checked) section {
   background-color: rebeccapurple;
 }
+/* Links 5 */
 main:has(form:first-child input:last-child:checked) section {
   background-color: teal;
 }
 
+/* Rechts 1 */
 main:has(form:last-child input:first-child:checked) section {
   background-color: crimson;
 }
+/* Rechts 2 */
 main:has(form:last-child input:nth-child(2):checked) section {
   background-color: brown;
 }
+/* Rechts 3 */
 main:has(form:last-child input:nth-child(3):checked) section {
   background-color: lawngreen;
 }
-
+/* Rechts 4 */
 main:has(form:last-child input:nth-child(4):checked) section {
   background-color: orange;
 }
-
+/* Rechts 5 */
 main:has(form:last-child input:last-child:checked) section {
   background-color: hotpink;
 }
-
+/* Rechts 1 en 2 */
 main:has(form:last-child:has(input:first-child:checked + input:nth-child(2):checked)) section {
   opacity: 0%;
 }
-
-main:has(form:last-child:has(input:nth-child(1):checked ~ input:nth-child(3):checked)) section {
-  background-color: turquoise;
-}
-
+/* Rechts 3 en 4 */
 main:has(form:last-child:has(input:nth-child(3):checked + input:nth-child(4):checked)) section {
   mix-blend-mode: exclusion;
 }
-
+/* Rechts 4 en 5 */
 main:has(form:last-child:has(input:nth-child(4):checked + input:last-child:checked)) section {
   mix-blend-mode: difference;
 }
-
+/* Rechts 2 en 3 */
 main:has(form:last-child:has(input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
   background-color: yellow;
 }
 
-
+/* Links 1 en Rechts 1  */
 main:has(form:first-child:has(input:first-child:checked) ~ form:last-child:has(input:first-child:checked)) section {
   background-color: darksalmon;
+}
+/* Rechts 1, 2 en 3 */
+main:has(form:last-child:has(input:nth-child(1):checked + input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
+  opacity: 1;
+  background-color: turquoise; 
+}
+/* Links 1, 2 en 3 */
+main:has(form:first-child:has(input:nth-child(1):checked + input:nth-child(2):checked ~ input:nth-child(3):checked)) section {
+  animation: bounce 1s infinite;
 }
 
 @keyframes bounce {
@@ -126,4 +174,57 @@ main:has(form:first-child:has(input:first-child:checked) ~ form:last-child:has(i
   100%{
     transform: translateY(-100px);
   }
+}
+
+/* Slider styling */
+/* Reset copied from css-tricks */
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Slider button styling */
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid darkred;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background: crimson;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px darkred, 0px 0px 1px darkred; /* Add cool effects to your sliders! */
+}
+
+/* The slider track */
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: darkgrey;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
 }
