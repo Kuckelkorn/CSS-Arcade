@@ -2,6 +2,9 @@
 
 assignment for the course CSS to the rescue.
 
+**When using this application make sure that you are using Safari Technology Preview. If it has been a while look here for the status of the implementation of `:has()`
+[:has() compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility)**
+
 ## Week 1
 
 This week we had to choose what our final assignment would look like. I've chosen to create my own arcade machine with a top down view. The challenges for this assignment for me are working the selectors and making different selectors impact a different part of the site.
