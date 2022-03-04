@@ -3,7 +3,7 @@
 assignment for the course CSS to the rescue.
 
 **When using this application make sure that you are using Safari Technology Preview. If it has been a while look here for the status of the implementation of `:has()`
-[:has() compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility)**
+[mdn browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility)**
 
 ## Week 1
 
