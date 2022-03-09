@@ -24,7 +24,7 @@ Today I started working with a simple layout of the site and started working wit
 
 Styled my checkboxes, added a slider in the footer. I also was able to have multiple checkboxes have an impact on the section in the middle. The next steps are to improve the styling and actually have different scenes displaying in the middle instead of just changing the colour.
 
-![Final design after week 2](./assets/week2.png | width=200)
+![Final design after week 2](./assets/week2.png)
 
 ## Week 3
 
@@ -53,3 +53,19 @@ I also was able to make the slider working with the code provided by the lecture
 Today I started working on more screens I could display when pressing multiple buttons and cleaned up some code for future convenience. So I included some divs that I could hide and show when a combination of checkboxes are checked and left unchecked.
 
 And made two kind of animations, one is displayed on default and the other is being shown when a combination of checkboxes are checked.
+
+## Week 4
+
+### Wednesday 9th of March
+
+Today was the final day that I worked on this little project. I've tried to make my machine look more realistic by adding linear gradients on the metal parts. I also found a codepen that shows a css drawing that looks like a fingerprint. With the help from Sanne ( a lecturer ), I was able to recreate this fingerprint and give my machine more personality.
+
+Some final screenshots of my site:
+
+![Begins screenshot](./assets/week203.1.png)
+
+![Pressing buttons](./assets/week203.2.png)
+
+![Pressing buttons 2 ](./assets/week203.3.png)
+
+![Pressing buttons 3](./assets/week203.4.png)
