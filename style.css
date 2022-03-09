@@ -8,7 +8,8 @@
 body {
   background: url('./fiber.jpg') no-repeat;
   background-size: cover;
-  overflow-x: hidden;
+  overflow: hidden;
+  transform: translateY(-2.5vh);
   --a-color: calc(360/10 * var(--s1-x, 0));
   --speed-sw: calc(60/10 * var(--s1-x, 0) *1s + 20s);
 }
@@ -23,6 +24,46 @@ body {
 [data-s1-x="8"] + body { --s1-x:8; }
 [data-s1-x="9"] + body { --s1-x:9; }
 [data-s1-x="10"] + body { --s1-x:10; }
+
+
+aside > form {
+  position: relative;
+}
+
+aside > form input::before{
+  display: block;
+  content: "";
+  width: 4em;
+  height: 4em;
+  background: linear-gradient( to bottom, #bcc6cc, #eee, #bcc6cc);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+aside > form input:first-child:before{
+  top: 10vh;
+  left: 5em;
+}
+
+aside > form input:nth-child(2)::before{
+  top: 10vh;
+  right: 5em;
+}
+
+aside > form input:nth-child(2):checked::before{
+  animation: screw 1s forwards;
+}
+
+aside > form input:nth-child(3)::before{
+  top: 90vh;
+  left: 5em;
+}
+
+aside > form input:last-child::before{
+  top: 90vh;
+  right: 5em;
+}
 
 main{
   position: relative;
@@ -205,7 +246,7 @@ main:has(form:last-child input:nth-child(4):checked) section div:nth-child(3){
 /* Rechts 5 */
 main:has(form:last-child input:last-child:checked) section div:nth-child(3){
   display: block;
-  background-color: hotpink;
+  background-color: gold;
 }
 
 /* Rechts 1 en 2 */
@@ -320,6 +361,27 @@ main:has(form:first-child input:nth-child(2):checked):has(form:last-child input:
 /* l3+r4 */
 /* l3+r5 */
 /* l4+r1 */
+main:has(form:first-child input:nth-child(4):checked):has(form:last-child input:first-child:checked) section div:nth-child(3){
+  display: none;
+}
+
+main:has(form:first-child input:nth-child(4):checked):has(form:last-child input:first-child:checked) section div:nth-child(2) {
+  display: none;
+}
+
+main:has(form:first-child input:nth-child(4):checked):has(form:last-child input:first-child:checked) section div:nth-child(4){
+  display: grid;
+  place-items: center;
+}
+
+main:has(form:first-child input:nth-child(4):checked):has(form:last-child input:first-child:checked) section div:nth-child(4) div{
+  display: block;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: #04e3b5;
+}
+
 /* l4+r2 */
 /* l4+r3 */
 /* l4+r4 */
@@ -465,4 +527,13 @@ input[type=range]::-webkit-slider-runnable-track {
       top: -400em;
       transform: rotateX(35deg) translateZ(-200em);
     }
+}
+
+@keyframes screw {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(300deg);
+  }
 }

@@ -24,7 +24,7 @@ Today I started working with a simple layout of the site and started working wit
 
 Styled my checkboxes, added a slider in the footer. I also was able to have multiple checkboxes have an impact on the section in the middle. The next steps are to improve the styling and actually have different scenes displaying in the middle instead of just changing the colour.
 
-![Final design after week 2](./assets/week2.png)
+![Final design after week 2](./assets/week2.png | width=200)
 
 ## Week 3
 
